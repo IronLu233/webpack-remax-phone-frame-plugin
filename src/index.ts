@@ -22,6 +22,7 @@ export class WebpackRemaxPhoneFramePlugin {
       const { entryName, url } = options;
       const { assets } = compilation;
       const index = ejs.render(template, { entryName, url });
+      if (!assets["index.html"]) return;
 
       assets["entry.html"] = assets["index.html"];
       assets["index.html"] = {
